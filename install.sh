@@ -57,10 +57,9 @@ chmod -R 755 /var/www/moodledata
 #SSLCertificateKeyFile /etc/apache2/ssl/server.key
 
 
-
 #RewriteEngine On
-#RewriteCond %{SERVER_PORT} 80
-#RewriteRule ^(.*)$ {SERVER_NAME}/$1 [R,L]
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
 
 
 #/etc/init.d/apache2 restart
