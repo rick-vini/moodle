@@ -60,7 +60,7 @@ sed -i 's/DocumentRoot \/var\/www\/html/DocumentRoot \/var\/www\/moodle/g' /etc/
 #SSLCertificateKeyFile /etc/apache2/ssl/server.key
 
 
-sed -i /ServerAdmin/a #RewriteEngine On RewriteCond %{HTTPS} !=on RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L] /etc/apache2/sites-available/000-default.conf
+sed -i '/ServerAdmin/a #RewriteEngine On RewriteCond %{HTTPS} !=on RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]' /etc/apache2/sites-available/000-default.conf
 
 
 #/etc/init.d/apache2 restart
