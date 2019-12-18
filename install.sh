@@ -30,6 +30,9 @@ chmod -R 755 /var/www/moodledata
 
 ##################### Pagina ############
 
+
+sed -i 's/DocumentRoot \/var\/www\/html/DocumentRoot \/var\/www\/moodle/g' /etc/apache2/sites-available/000-default.conf
+sed -i 's/DocumentRoot \/var\/www\/html/DocumentRoot \/var\/www\/moodle/g' /etc/apache2/sites-available/default-ssl.conf
 # vi /etc/apache2/sites-available/default
 #On about line 4, change DocumentRoot "/var/www/html" to
 
@@ -57,9 +60,7 @@ chmod -R 755 /var/www/moodledata
 #SSLCertificateKeyFile /etc/apache2/ssl/server.key
 
 
-#RewriteEngine On
-#RewriteCond %{HTTPS} !=on
-#RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+sed -i /ServerAdmin/a #RewriteEngine On RewriteCond %{HTTPS} !=on RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L] /etc/apache2/sites-available/000-default.conf
 
 
 #/etc/init.d/apache2 restart
