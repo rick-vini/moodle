@@ -44,16 +44,16 @@ chmod -R 755 /var/www/moodledata
 
 
 ######## HTTPS #######
-mkdir /etc/apache2/ssl
-openssl req -x509 -nodes -days 1095 -newkey rsa:4096 -out /etc/apache2/ssl/server.crt -keyout /etc/apache2/ssl/server.key
+#mkdir /etc/apache2/ssl
+#openssl req -x509 -nodes -days 1095 -newkey rsa:4096 -out /etc/apache2/ssl/server.crt -keyout /etc/apache2/ssl/server.key
 
-a2enmod ssl
+#a2enmod ssl
  
-ln -s /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-enabled/000-default-ssl.conf
-/etc/apache2/sites-enabled/000-default-ssl.conf
+#ln -s /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-enabled/000-default-ssl.conf
+#vi /etc/apache2/sites-enabled/000-default-ssl.conf
 
-SSLCertificateFile    /etc/apache2/ssl/server.crt
-SSLCertificateKeyFile /etc/apache2/ssl/server.key
+#SSLCertificateFile    /etc/apache2/ssl/server.crt
+#SSLCertificateKeyFile /etc/apache2/ssl/server.key
 
 
 
