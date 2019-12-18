@@ -1,0 +1,14 @@
+CREATE USER 'valmor'@'%' IDENTIFIED BY 'adminuser';
+
+GRANT ALL PRIVILEGES ON  *.* to 'valmor'@'%' WITH GRANT OPTION;
+
+flush privileges;
+
+SHOW GRANTS FOR valmor;
+
+CREATE DATABASE moodle CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+exit;
+
+/etc/init.d/mysql restart
+
