@@ -14,7 +14,7 @@ apt-get install unzip
 
 cd /var/www
 
-wget https://download.moodle.org/download.php/stable38/moodle-latest-38.zip
+wget https://download.moodle.org/download.php/direct/stable38/moodle-latest-38.zip
 
 unzip moodle-latest-38.zip
 
