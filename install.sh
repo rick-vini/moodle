@@ -40,6 +40,8 @@ systemctl restart mariadb.service
 
 ##################### Pagina ############
 
+cp -a /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf.original
+cp -a /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf.original
 
 sed -i 's/DocumentRoot \/var\/www\/html/DocumentRoot \/var\/www\/moodle/g' /etc/apache2/sites-available/000-default.conf
 sed -i 's/DocumentRoot \/var\/www\/html/DocumentRoot \/var\/www\/moodle/g' /etc/apache2/sites-available/default-ssl.conf
@@ -58,7 +60,7 @@ ln -s /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-enabled/0
 #SSLCertificateFile    /etc/apache2/ssl/server.crt
 #SSLCertificateKeyFile /etc/apache2/ssl/server.key
 
-sed -i '/ServerAdmin/a #RewriteEngine On RewriteCond %{HTTPS} !=on RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]' /etc/apache2/sites-available/000-default.conf
+sed -i '/ServerAdmin/a RewriteEngine On\nRewriteCond %{HTTPS} !=on\nRewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]' /etc/apache2/sites-available/000-default.conf
 
 /etc/init.d/apache2 restart
 
