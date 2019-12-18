@@ -42,6 +42,26 @@ chmod -R 755 /var/www/moodledata
 # RedirectMatch ^/$ /apache2-default/
 #You can change other values like ServerAdmin if appropriate. For all changes, you should restart Apache for the new settings to take effect.
 
+
+######## HTTPS #######
+mkdir /etc/apache2/ssl
+openssl req -x509 -nodes -days 1095 -newkey rsa:4096 -out /etc/apache2/ssl/server.crt -keyout /etc/apache2/ssl/server.key
+
+a2enmod ssl
+ 
+ln -s /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-enabled/000-default-ssl.conf
+/etc/apache2/sites-enabled/000-default-ssl.conf
+
+SSLCertificateFile    /etc/apache2/ssl/server.crt
+SSLCertificateKeyFile /etc/apache2/ssl/server.key
+
+
+
+#RewriteEngine On
+#RewriteCond %{SERVER_PORT} 80
+#RewriteRule ^(.*)$ {SERVER_NAME}/$1 [R,L]
+
+
 #/etc/init.d/apache2 restart
 
 ############### CRON ###############
