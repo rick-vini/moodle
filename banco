@@ -1,3 +1,7 @@
+mysqladmin -u root password "adminuser"
+
+mysql -u root -p
+
 CREATE USER 'valmor'@'%' IDENTIFIED BY 'adminuser';
 
 GRANT ALL PRIVILEGES ON  *.* to 'valmor'@'%' WITH GRANT OPTION;
