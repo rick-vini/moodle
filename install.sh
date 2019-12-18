@@ -12,23 +12,21 @@ apt-get update
 
 apt-get install unzip
 
+cd /var/www
+
 wget https://download.moodle.org/download.php/stable38/moodle-latest-38.zip
 
 unzip moodle-latest-38.zip
 
-mv moodle /var/www
-
-cd /var/www
-
 mkdir /var/www/moodledata
 
-chown -R www-data:www-data moodle
+chown -R www-data:www-data /var/www/moodle
 
-chown -R www-data:www-data moodledata
+chown -R www-data:www-data /var/www/moodledata
 
-chmod -R 755 moodle
+chmod -R 755 /var/www/moodle
 
-chmod -R 755 moodledata
+chmod -R 755 /var/www/moodledata
 
 ##################### Pagina ############
 
