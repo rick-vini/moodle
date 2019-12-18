@@ -30,7 +30,7 @@ chmod -R 755 /var/www/moodledata
 
 mysqladmin -u root password "adminuser"
 
-mysql -u root -p -e "CREATE USER 'valmor'@'%' IDENTIFIED BY 'adminuser';GRANT ALL PRIVILEGES ON  *.* to 'valmor'@'%' WITH GRANT OPTION;flush privileges;CREATE DATABASE moodle CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;CREATE USER 'moodleuser'@'localhost' IDENTIFIED BY 'adminuser';GRANT ALL PRIVILEGES ON moodle.* TO 'moodleuser'@'localhost';"
+mysql -u root -p -e "CREATE USER 'valmor'@'%' IDENTIFIED BY 'adminuser';GRANT ALL PRIVILEGES ON  *.* to 'valmor'@'%' WITH GRANT OPTION;flush privileges;CREATE DATABASE moodle CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;CREATE USER 'moodleuser'@'localhost' IDENTIFIED BY 'adminuser';GRANT ALL PRIVILEGES ON moodle.* TO 'moodleuser'@'localhost';GRANT LOCK TABLES, SELECT ON *.* TO 'dumpuser'@'localhost' IDENTIFIED BY 'adminuser';"
 
 #SHOW GRANTS FOR valmor;
 
