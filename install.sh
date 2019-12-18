@@ -70,3 +70,19 @@ sed -i '/ServerAdmin/a RewriteEngine On\nRewriteCond %{HTTPS} !=on\nRewriteRule 
 
 # crontab -u www-data -e
 # */10 * * * * /usr/bin/php /var/www/moodle/admin/cli/cron.php  > /dev/null
+
+#########  BKP  ##########
+
+# Script que realiza o dump do banco do roundcube. Mantem as ultimas 7 copias por seguranca
+# Criado por ricardo
+
+#DATADIR="/home/cpdsrssa/roundcubebackups"
+#USERNAME="dumpuser"
+#PASSWORD="adminuser"
+#NOW=$(date +"%d-%m-%Y")
+
+#Faz Backup colocando a data no nome do arquivo
+#/usr/bin/mysqldump -u $USERNAME -p$PASSWORD --databases moodle > $DATADIR/moodle.$NOW.sql
+
+# Remove arquivos do diretório informado com mais de uma semana (7 dias)
+#find $DATADIR -mtime +6 -exec rm {} \;
