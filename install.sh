@@ -28,6 +28,16 @@ chmod -R 755 /var/www/moodle
 
 chmod -R 755 /var/www/moodledata
 
+############## Banco ##########
+
+mysqladmin -u root password "adminuser"
+
+mysql -u root -p -e "CREATE USER 'valmor'@'%' IDENTIFIED BY 'adminuser';GRANT ALL PRIVILEGES ON  *.* to 'valmor'@'%' WITH GRANT OPTION;flush privileges;CREATE DATABASE moodle CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;CREATE USER 'moodleuser'@'localhost' IDENTIFIED BY 'adminuser';GRANT ALL PRIVILEGES ON moodle.* TO 'moodleuser'@'localhost';"
+
+#SHOW GRANTS FOR valmor;
+
+systemctl restart mariadb.service
+
 ##################### Pagina ############
 
 
